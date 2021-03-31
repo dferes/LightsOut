@@ -45,19 +45,18 @@ const Board = ({ nrows, ncols, chanceLightStartsOn=0.50}) => {
     return board.every( (val, idx) => true === board[idx].every( bool => bool === true ) );
   }
 
-  // coord is a string in the form of 'y-x'
+  // flips every cell in contact with the specified coordinate
   const flipCellsAround = (y, x) => {
     setBoard(oldBoard => {
-      // const [y, x] = coord.split("-").map(Number);
       const flipCell = (y, x, boardCopy) => {
         if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
           boardCopy[y][x] = !boardCopy[y][x];
         }
       };
 
-      // TODO: Make a (deep) copy of the oldBoard
+
       let newBoard = cloneDeep(oldBoard);
-      // TODO: in the copy, flip this cell and the cells around it
+
       flipCell(y, x, newBoard);
       flipCell(y, x-1, newBoard);
       flipCell(y, x+1, newBoard);
@@ -69,10 +68,6 @@ const Board = ({ nrows, ncols, chanceLightStartsOn=0.50}) => {
     });
   }
 
-  // TODO
-  // if the game is won, just show a winning msg & render nothing else
-
-  // make table board
   if (hasWon()) {
     return (
       <div>
