@@ -1,0 +1,1 @@
+Light out is a logic/puzzle game played on a grid of individual lights, which can either be lit or unlit. The puzzle is wone when all the lights are turned off.
