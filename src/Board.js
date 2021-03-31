@@ -29,26 +29,26 @@ import "./Board.css";
  **/
 
 const Board = ({ nrows, ncols, chanceLightStartsOn=0.50}) => {
-  const [board, setBoard] = useState(createBoard());
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
   const createBoard = () => {
-    let initialBoard = Array.from( { length: 10 }, () => ( 
-      Array.from({ length: 10 }, () => Math.random() <= chanceLightStartsOn ? true: false)
+    let initialBoard = Array.from( { length: nrows }, () => ( 
+      Array.from({ length: ncols }, () => Math.random() <= chanceLightStartsOn ? true: false)
     ));
 
     return initialBoard;
   }
+  const [board, setBoard] = useState(createBoard());
 
   // Returns true if every column of every row is set to true
   const hasWon = () => {
     return board.every( (val, idx) => true === board[idx].every( bool => bool === true ) );
   }
-  // coord is a string in the form of 'y-x'
-  const flipCellsAround = (coord) => {
-    setBoard(oldBoard => {
-      const [y, x] = coord.split("-").map(Number);
 
+  // coord is a string in the form of 'y-x'
+  const flipCellsAround = (y, x) => {
+    setBoard(oldBoard => {
+      // const [y, x] = coord.split("-").map(Number);
       const flipCell = (y, x, boardCopy) => {
         if (x >= 0 && x < ncols && y >= 0 && y < nrows) {
           boardCopy[y][x] = !boardCopy[y][x];
@@ -58,11 +58,11 @@ const Board = ({ nrows, ncols, chanceLightStartsOn=0.50}) => {
       // TODO: Make a (deep) copy of the oldBoard
       let newBoard = cloneDeep(oldBoard);
       // TODO: in the copy, flip this cell and the cells around it
-      flipCellsAround(y, x, newBoard);
-      flipCellsAround(y, x-1, newBoard);
-      flipCellsAround(y, x+1, newBoard);
-      flipCellsAround(y-1, x, newBoard);
-      flipCellsAround(y+1, x, newBoard);
+      flipCell(y, x, newBoard);
+      flipCell(y, x-1, newBoard);
+      flipCell(y, x+1, newBoard);
+      flipCell(y-1, x, newBoard);
+      flipCell(y+1, x, newBoard);
 
       // TODO: return the copy
       return newBoard
@@ -81,9 +81,18 @@ const Board = ({ nrows, ncols, chanceLightStartsOn=0.50}) => {
     )
   }
   return (
-    <div>
-      <Cell />
-    </div>
+    <table className='gameBoard'>
+      {board.map( (row, y) => (
+        <tr>
+          {row.map( (isLit, x) => (
+            <Cell 
+              flipCellsAroundMe={() => flipCellsAround(y,x)}
+              isLit={isLit}
+            />
+          ))}  
+        </tr>
+      ))}
+    </table>
   )
 }
 
