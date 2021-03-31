@@ -1,3 +1,12 @@
 .Board {
   margin: 0 auto;
 }
+
+.gameBoard {
+  padding: 1em;
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  border: 0.25em solid black;
+  background-color: rgb(137, 137, 224);
+}
