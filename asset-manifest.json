@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/LightsOut/static/css/main.a2b25f77.chunk.css",
-    "main.js": "/LightsOut/static/js/main.d3816e11.chunk.js",
-    "main.js.map": "/LightsOut/static/js/main.d3816e11.chunk.js.map",
+    "main.js": "/LightsOut/static/js/main.f1261f0c.chunk.js",
+    "main.js.map": "/LightsOut/static/js/main.f1261f0c.chunk.js.map",
     "runtime-main.js": "/LightsOut/static/js/runtime-main.8388d8ff.js",
     "runtime-main.js.map": "/LightsOut/static/js/runtime-main.8388d8ff.js.map",
     "static/js/2.c8fa27f8.chunk.js": "/LightsOut/static/js/2.c8fa27f8.chunk.js",
     "static/js/2.c8fa27f8.chunk.js.map": "/LightsOut/static/js/2.c8fa27f8.chunk.js.map",
     "index.html": "/LightsOut/index.html",
-    "precache-manifest.8eedd40a9748371fedf4508ab98ad27e.js": "/LightsOut/precache-manifest.8eedd40a9748371fedf4508ab98ad27e.js",
+    "precache-manifest.88baec0c8eb1a42148fca593c94f9e14.js": "/LightsOut/precache-manifest.88baec0c8eb1a42148fca593c94f9e14.js",
     "service-worker.js": "/LightsOut/service-worker.js",
     "static/css/main.a2b25f77.chunk.css.map": "/LightsOut/static/css/main.a2b25f77.chunk.css.map",
     "static/js/2.c8fa27f8.chunk.js.LICENSE.txt": "/LightsOut/static/js/2.c8fa27f8.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.8388d8ff.js",
     "static/js/2.c8fa27f8.chunk.js",
     "static/css/main.a2b25f77.chunk.css",
-    "static/js/main.d3816e11.chunk.js"
+    "static/js/main.f1261f0c.chunk.js"
   ]
 }
